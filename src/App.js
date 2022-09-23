@@ -1,7 +1,36 @@
 import React from "react";
 import styled from "styled-components";
-import SearchStartDate from "./components/SearchStartDate";
-import SearchEndDate from "./components/SearchEndDate";
+import DateStartToEnd from "./components/DateStartToEnd";
+
+const App = () => {
+  return (
+    <AppContainer>
+      <SearchForm>
+        {/* Date input */}
+        <SearchDate>
+          <SearchSpan>Date</SearchSpan>
+          <DateStartToEnd />
+        </SearchDate>
+
+        {/* PhoneNum input */}
+        <SearchPhoneNum>
+          <SearchSpan>Phone No.</SearchSpan>
+          <SearchPhoneNumInput />
+        </SearchPhoneNum>
+
+        {/* Memo input */}
+        <SearchMemo>
+          <SearchSpan searchItem="MEMO">
+            #<SearchMemoInput />
+          </SearchSpan>
+        </SearchMemo>
+
+        {/* Search button */}
+        <SearchBtn>Search</SearchBtn>
+      </SearchForm>
+    </AppContainer>
+  );
+};
 
 const AppContainer = styled.div`
   display: flex;
@@ -81,37 +110,5 @@ const SearchBtn = styled.button`
     cursor: pointer;
   }
 `;
-
-const App = () => {
-  return (
-    <AppContainer>
-      <SearchForm>
-        {/* Date input */}
-        <SearchDate>
-          <SearchSpan>Date</SearchSpan>
-          <SearchStartDate />
-          <SearchSpan>~</SearchSpan>
-          <SearchEndDate />
-        </SearchDate>
-
-        {/* PhoneNum input */}
-        <SearchPhoneNum>
-          <SearchSpan>Phone No.</SearchSpan>
-          <SearchPhoneNumInput />
-        </SearchPhoneNum>
-
-        {/* Memo input */}
-        <SearchMemo>
-          <SearchSpan searchItem="MEMO">
-            #<SearchMemoInput />
-          </SearchSpan>
-        </SearchMemo>
-
-        {/* Search button */}
-        <SearchBtn>Search</SearchBtn>
-      </SearchForm>
-    </AppContainer>
-  );
-};
 
 export default App;
